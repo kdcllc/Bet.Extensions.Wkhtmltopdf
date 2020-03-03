@@ -1,0 +1,16 @@
+POST https://localhost:3101/Pdf
+Content-Type: text/plain
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <header>
+        <h1>This is a hardcoded test</h1>
+    </header>
+    <div>
+        <h2>456789</h2>
+    </div>
+</body>"
+

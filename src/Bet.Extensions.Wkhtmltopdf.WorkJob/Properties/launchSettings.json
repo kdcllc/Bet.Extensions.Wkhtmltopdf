@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Bet.Extensions.Wkhtmltopdf.WorkJob": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

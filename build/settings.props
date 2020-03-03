@@ -1,0 +1,46 @@
+<Project>
+
+  <PropertyGroup Label="Basic Settings">
+    <VersionPrefix>1.0.0-preview</VersionPrefix>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <NoWarn>$(NoWarn);CS1591;NU1605;</NoWarn>
+    <TieredCompilation>true</TieredCompilation>
+    <AspNetCoreHostingModel>inprocess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <PropertyGroup Label="Ownership Settings">
+    <Company>King David Consulting LLC</Company>
+    <Authors>kdcllc</Authors>
+    <Copyright>Copyright © King David Consulting LLC</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget Package Settings">
+    <PackageProjectUrl>https://github.com/kdcllc/Bet.Extensions.Wkhtmltopdf</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kdcllc/Bet.Extensions.Wkhtmltopdf.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicense>https://github.com/kdcllc/Bet.Extensions.Wkhtmltopdf/blob/master/LICENSE</PackageLicense>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>wkhtmltopdf, pdf, aspnetcore, dotnet, worker, hosting, kubernetes, docker</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+  </PropertyGroup>
+
+  <PropertyGroup Label="SourceLink Settings">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+     <!-- https://github.com/kdcllc/Bet.AspNetCore/issues/103 -->
+    <DebugType>Embedded</DebugType>
+    <EmbedAllSources>True</EmbedAllSources>
+  </PropertyGroup>
+
+</Project>

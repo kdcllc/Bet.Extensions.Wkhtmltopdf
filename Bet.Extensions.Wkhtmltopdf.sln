@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Wkhtmltopdf.WebApi", "src\Bet.Extensions.Wkhtmltopdf.WebApi\Bet.Extensions.Wkhtmltopdf.WebApi.csproj", "{18AF7442-BCF3-408E-BE05-4D28DC18C4EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Wkhtmltopdf", "src\Bet.Extensions.Wkhtmltopdf\Bet.Extensions.Wkhtmltopdf.csproj", "{754A2FD0-806B-497B-B00F-E04599C4A073}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D430354-75AD-44F1-8C51-44AE3A5F3198}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C5BAF162-A93B-4669-A1FF-8CC89331D81E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Wkhtmltopdf.UnitTest", "test\Bet.Extensions.Wkhtmltopdf.UnitTest\Bet.Extensions.Wkhtmltopdf.UnitTest.csproj", "{EF439003-4050-4408-8965-6BB79F0FB480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{5127E86A-C920-417D-9250-254C68EF9BEC}"
+	ProjectSection(SolutionItems) = preProject
+		build\dependencies.props = build\dependencies.props
+		build\settings.props = build\settings.props
+		build\sources.props = build\sources.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E21D9B4E-51FA-404A-8443-111410ED5D65}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		clean.sh = clean.sh
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "src\Benchmarks\Benchmarks.csproj", "{F2D3A816-7A22-45AE-8205-2816DB5173AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.Extensions.Wkhtmltopdf.WorkJob", "src\Bet.Extensions.Wkhtmltopdf.WorkJob\Bet.Extensions.Wkhtmltopdf.WorkJob.csproj", "{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18AF7442-BCF3-408E-BE05-4D28DC18C4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18AF7442-BCF3-408E-BE05-4D28DC18C4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18AF7442-BCF3-408E-BE05-4D28DC18C4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18AF7442-BCF3-408E-BE05-4D28DC18C4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754A2FD0-806B-497B-B00F-E04599C4A073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754A2FD0-806B-497B-B00F-E04599C4A073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754A2FD0-806B-497B-B00F-E04599C4A073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754A2FD0-806B-497B-B00F-E04599C4A073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF439003-4050-4408-8965-6BB79F0FB480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF439003-4050-4408-8965-6BB79F0FB480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF439003-4050-4408-8965-6BB79F0FB480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF439003-4050-4408-8965-6BB79F0FB480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D3A816-7A22-45AE-8205-2816DB5173AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D3A816-7A22-45AE-8205-2816DB5173AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D3A816-7A22-45AE-8205-2816DB5173AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D3A816-7A22-45AE-8205-2816DB5173AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18AF7442-BCF3-408E-BE05-4D28DC18C4EE} = {4D430354-75AD-44F1-8C51-44AE3A5F3198}
+		{754A2FD0-806B-497B-B00F-E04599C4A073} = {4D430354-75AD-44F1-8C51-44AE3A5F3198}
+		{EF439003-4050-4408-8965-6BB79F0FB480} = {C5BAF162-A93B-4669-A1FF-8CC89331D81E}
+		{F2D3A816-7A22-45AE-8205-2816DB5173AD} = {4D430354-75AD-44F1-8C51-44AE3A5F3198}
+		{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43} = {4D430354-75AD-44F1-8C51-44AE3A5F3198}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7702715E-825C-437E-8D82-FE4A6793354E}
+	EndGlobalSection
+EndGlobal

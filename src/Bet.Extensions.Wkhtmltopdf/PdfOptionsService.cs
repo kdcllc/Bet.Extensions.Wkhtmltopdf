@@ -8,7 +8,7 @@ using Bet.Extensions.Wkhtmltopdf.Options;
 
 using Microsoft.Extensions.Logging;
 
-namespace Bet.Extensions.Wkhtmltopdf.Internal
+namespace Bet.Extensions.Wkhtmltopdf
 {
     public class PdfOptionsService : IPdfOptionsService
     {

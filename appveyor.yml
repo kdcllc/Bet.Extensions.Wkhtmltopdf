@@ -23,7 +23,7 @@ build_script:
 
 #test: off
 test_script:
-  - dotnet test test/CronScheduler.UnitTest/CronScheduler.UnitTest.csproj
+  - dotnet test test/Bet.Extensions.Wkhtmltopdf.UnitTest/Bet.Extensions.Wkhtmltopdf.UnitTest.csproj
 
 artifacts:
 - path: .\src\**\*.nupkg

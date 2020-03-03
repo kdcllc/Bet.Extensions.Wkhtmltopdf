@@ -26,17 +26,14 @@
   </PropertyGroup>
 
   <ItemGroup Label="Microsoft.Extensions">
-    <PackageReference Update="Microsoft.Extensions.Options" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(ExtensionsVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Http.Polly" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(ExtensionsVersion)" />
   </ItemGroup>
 
   <ItemGroup Label="WebApi">
-    <PackageReference Update="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="$(AspNetCoreVersion)"/>
     <PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.3" />
+    <PackageReference Update="AngleSharp" Version="0.13.0" />
   </ItemGroup>
 
   <ItemGroup Label="Unit Tests">
@@ -49,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup Label="Bet">
+    <PackageReference Update="Bet.AspNetCore" Version="$(BetCommon)" />
     <PackageReference Update="Bet.Extensions.Options" Version="$(BetCommon)" />
     <PackageReference Update="Bet.Extensions.Testing" Version="$(BetCommon)" />
   </ItemGroup>

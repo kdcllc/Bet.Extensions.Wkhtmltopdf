@@ -12,7 +12,7 @@ namespace Benchmarks
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddPDFGenerator(null, options => options.UseEmbedded = false);
+            services.AddPdfGenerator(genConfig: options => options.UseEmbedded = false);
         }
 
         public void Configure(IApplicationBuilder app)
@@ -22,7 +22,7 @@ namespace Benchmarks
                 next.Run(async context =>
                 {
                     using var client = new WebClient();
-                    var html = await client.DownloadStringTaskAsync("https://www.spacex.com/missions");
+                    var html = await client.DownloadStringTaskAsync("https://kingdavidconsulting.com");
 
                     var pdfGenerator = next.ApplicationServices.GetRequiredService<IPdfGenerator>();
                     var pdf = await pdfGenerator.GetAsync(html, CancellationToken.None);

@@ -142,17 +142,15 @@ namespace Bet.Extensions.Wkhtmltopdf
                 return Path.Combine(wkhtmlPath, osSystem, exeName);
             }
 
-            // https://developers.redhat.com/blog/2018/11/07/dotnet-special-folder-api-linux/
-            // /usr/share or C:\ProgramData
-            var f = AppContext.BaseDirectory; //Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData); //AppContext.BaseDirectory;
-            var localBin = Path.Combine(f, nameof(WkhtmlWrapper), osSystem, exeName);
+            var localBin = Path.Combine(AppContext.BaseDirectory, nameof(WkhtmlWrapper), osSystem, exeName);
+            var fixedPath = localBin = $"{localBin.Replace(".exe", string.Empty)}.dr";
 
-            if (File.Exists(localBin))
+            if (File.Exists(fixedPath))
             {
-                return localBin;
+                return fixedPath;
             }
 
-            var dir = new DirectoryInfo(localBin);
+            var dir = new DirectoryInfo(fixedPath);
             if (!dir.Exists)
             {
                 dir.Create();
@@ -164,11 +162,10 @@ namespace Bet.Extensions.Wkhtmltopdf
             using (var memoryStream = new MemoryStream())
             {
                 resource.CopyTo(memoryStream);
-                localBin = $"{localBin.Replace(".exe", string.Empty)}.dr";
-                File.WriteAllBytes(localBin, memoryStream.ToArray());
+                File.WriteAllBytes(fixedPath, memoryStream.ToArray());
             }
 
-            return localBin;
+            return fixedPath;
         }
     }
 }

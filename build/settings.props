@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup Label="Basic Settings">
-    <VersionPrefix>1.0.0-preview</VersionPrefix>
+    <VersionPrefix>1.0.2-preview</VersionPrefix>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <NoWarn>$(NoWarn);CS1591;NU1605;</NoWarn>
@@ -29,7 +29,6 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>wkhtmltopdf, pdf, aspnetcore, dotnet, worker, hosting, kubernetes, docker</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
   </PropertyGroup>
 
   <PropertyGroup Label="SourceLink Settings">

@@ -36,10 +36,6 @@ namespace Bet.Extensions.Wkhtmltopdf
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 location = GetEmbededResource("Windows", "wkhtmltopdf.exe", wkhtmlPath);
-                if (string.IsNullOrEmpty(wkhtmlPath))
-                {
-                    location = location.Replace(".exe", string.Empty);
-                }
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
@@ -137,20 +133,20 @@ namespace Bet.Extensions.Wkhtmltopdf
 
         private static string GetEmbededResource(string osSystem, string exeName, string? wkhtmlPath = null)
         {
-            if (!string.IsNullOrEmpty(wkhtmlPath))
+         if (!string.IsNullOrEmpty(wkhtmlPath))
             {
                 return Path.Combine(wkhtmlPath, osSystem, exeName);
             }
 
             var localBin = Path.Combine(AppContext.BaseDirectory, nameof(WkhtmlWrapper), osSystem, exeName);
-            var fixedPath = localBin = $"{localBin.Replace(".exe", string.Empty)}.dr";
+            var fixedPath = localBin = $"{localBin.Replace(".exe", string.Empty)}.br";
 
             if (File.Exists(fixedPath))
             {
                 return fixedPath;
             }
 
-            var dir = new DirectoryInfo(fixedPath);
+            var dir = new DirectoryInfo(Path.GetDirectoryName(fixedPath));
             if (!dir.Exists)
             {
                 dir.Create();

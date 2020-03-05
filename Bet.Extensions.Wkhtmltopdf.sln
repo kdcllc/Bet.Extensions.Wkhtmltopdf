@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "src\Benchmarks\Benchmarks.csproj", "{F2D3A816-7A22-45AE-8205-2816DB5173AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.Extensions.Wkhtmltopdf.WorkJob", "src\Bet.Extensions.Wkhtmltopdf.WorkJob\Bet.Extensions.Wkhtmltopdf.WorkJob.csproj", "{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Wkhtmltopdf.WorkJob", "src\Bet.Extensions.Wkhtmltopdf.WorkJob\Bet.Extensions.Wkhtmltopdf.WorkJob.csproj", "{CD9DE4C6-A5DE-462E-9C64-DF66C2A3FA43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

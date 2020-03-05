@@ -16,7 +16,7 @@ namespace Bet.Extensions.Wkhtmltopdf.WorkJob
                         .ConfigureServices((hostContext, services) =>
                         {
                             services.AddHostedService<Worker>();
-                            services.AddPdfGenerator();
+                            services.AddPdfGenerator(genConfig: options => options.AppBaseDirectory = string.Empty);
                         });
         }
     }

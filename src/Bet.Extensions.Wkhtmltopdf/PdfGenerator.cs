@@ -31,7 +31,7 @@ namespace Bet.Extensions.Wkhtmltopdf
         public Task<byte[]> GetAsync(string named, string html, CancellationToken cancellationToken)
         {
             var options = _pdfOptionsService.GetWkhtmltopdfSwitches(_pdfOptionsMonitor.Get(named));
-            var currentDirectory = _pdgGeneratorOptions.AppBaseDirectory;
+            var currentDirectory = _pdgGeneratorOptions.UseEmbedded ? string.Empty : _pdgGeneratorOptions.AppBaseDirectory;
 
             return _taskFactory.StartNew(() => WkhtmlWrapper.Convert(options, html, currentDirectory));
         }
@@ -43,13 +43,13 @@ namespace Bet.Extensions.Wkhtmltopdf
 
         public Task<byte[]> GetAsync(string named, string html, PdfOptions options, CancellationToken cancellationToken)
         {
-            var currentDirectory = _pdgGeneratorOptions.AppBaseDirectory;
+            var currentDirectory = _pdgGeneratorOptions.UseEmbedded ? string.Empty : _pdgGeneratorOptions.AppBaseDirectory;
             return _taskFactory.StartNew(() => WkhtmlWrapper.Convert(_pdfOptionsService.GetWkhtmltopdfSwitches(options), html, currentDirectory));
         }
 
         public Task<byte[]> GetAsync(string html, PdfOptions options, CancellationToken cancellationToken)
         {
-            var currentDirectory = _pdgGeneratorOptions.AppBaseDirectory;
+            var currentDirectory = _pdgGeneratorOptions.UseEmbedded ? string.Empty : _pdgGeneratorOptions.AppBaseDirectory;
             return GetAsync(string.Empty, html, options, cancellationToken);
         }
     }

@@ -43,7 +43,7 @@ namespace Bet.Extensions.Wkhtmltopdf.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();

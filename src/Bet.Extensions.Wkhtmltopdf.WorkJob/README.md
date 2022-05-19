@@ -1,4 +1,4 @@
-﻿# Bet.Extensions.Wkhtmltopdf
+# Bet.Extensions.Wkhtmltopdf
 
 [![Build status](https://ci.appveyor.com/api/projects/status/53eor37h3tekdn4v?svg=true)](https://ci.appveyor.com/project/kdcllc/bet-extensions-wkhtmltopdf)
 [![NuGet](https://img.shields.io/nuget/v/Bet.Extensions.Wkhtmltopdf.svg)](https://www.nuget.org/packages?q=Bet.Extensions.Wkhtmltopdf)
@@ -12,10 +12,6 @@ _Note: Pre-release packages are distributed via [feedz.io](https://f.feedz.io/kd
 ## Summary
 
 The purpose of this project is to provide a wrapper around [wkhtmltopdf](https://wkhtmltopdf.org/) html to pdf generator.
-
-- [`Bet.Extensions.Wkhtmltopdf`](./src/Bet.Extensions.Wkhtmltopdf/) the library to be used in DotNetCore projects.
-- [`Bet.Extensions.Wkhtmltopdf.WebApi`](./src/Bet.Extensions.Wkhtmltopdf.WebApi/) the AspNetCore sample project that runs in Docker Container.
-- [`Bet.Extensions.Wkhtmltopdf.WorkJob`](./src/Bet.Extensions.Wkhtmltopdf.WorkJob/) the DotNetCore Console App sample.
 
 ## Hire me
 
@@ -35,34 +31,27 @@ If you like or are using this project to learn or start your solution, please gi
 
 ## Usage
 
-1. In `Startup.cs` or `Program.cs` please register the service.
-
 ```csharp
-    services.AddPdfGenerator();
+    // register with di
+    services.AddPdfGenerator(genConfig: options =>
+    {
+        // allows for including wkhtmltopdf inside of the project
+        options.UseEmbedded = false;
+    });
 
+
+    [HttpGet]
+    [Route("Get")]
+    public async Task<IActionResult> Get(string url, CancellationToken cancellationToken)
+    {
+        using var client = new WebClient();
+        var html = await client.DownloadStringTaskAsync(url);
+
+        var pdf = await _pdfGenerator.GetAsync(html, cancellationToken);
+
+        var pdfStream = new MemoryStream();
+        pdfStream.Write(pdf, 0, pdf.Length);
+        pdfStream.Position = 0;
+        return new FileStreamResult(pdfStream, "application/pdf");
+    }
 ```
-
-2. Then use within components
-
-```csharp
-    var byteArray = await _pdfGenerator.GetAsync(html, stoppingToken);
-
-    var fileName = Path.Combine(AppContext.BaseDirectory, $"{Guid.NewGuid().ToString()}.pdf");
-
-    using var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
-    fs.Write(byteArray, 0, byteArray.Length);
-```
-
-## WSL Linux
-
-```bash
-    sudo apt-get install libjpeg62
-```
-
-## Benchmark
-
-For details on the benchmarking this project please refer to [Benchmarks](./src/Benchmarks/).
-
-## References
-
-- [DotNet Special Folder Api Linux](https://developers.redhat.com/blog/2018/11/07/dotnet-special-folder-api-linux/)

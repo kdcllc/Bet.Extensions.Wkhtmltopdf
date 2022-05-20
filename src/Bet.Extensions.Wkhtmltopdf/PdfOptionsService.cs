@@ -8,82 +8,81 @@ using Bet.Extensions.Wkhtmltopdf.Options;
 
 using Microsoft.Extensions.Logging;
 
-namespace Bet.Extensions.Wkhtmltopdf
+namespace Bet.Extensions.Wkhtmltopdf;
+
+public class PdfOptionsService : IPdfOptionsService
 {
-    public class PdfOptionsService : IPdfOptionsService
+    private readonly ILogger<PdfOptionsService> _logger;
+
+    public PdfOptionsService(ILogger<PdfOptionsService> logger)
     {
-        private readonly ILogger<PdfOptionsService> _logger;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    }
 
-        public PdfOptionsService(ILogger<PdfOptionsService> logger)
+    public string GetWkhtmltopdfSwitches(PdfOptions options)
+    {
+        if (options == null)
         {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            return string.Empty;
         }
 
-        public string GetWkhtmltopdfSwitches(PdfOptions options)
+        return GetSwitches(options);
+    }
+
+    private string GetSwitches(PdfOptions options)
+    {
+        var result = new StringBuilder();
+
+        if (options.PageMargins != null)
         {
-            if (options == null)
+            result.Append(options.PageMargins.ToString());
+        }
+
+        result.Append(" ");
+        result.Append(GetSwitchesBas(options));
+
+        return result.ToString().Trim();
+    }
+
+    private string GetSwitchesBas(PdfOptions options)
+    {
+        var result = new StringBuilder();
+
+        var fields = options.GetType().GetProperties();
+        foreach (var fi in fields)
+        {
+            if (!(fi.GetCustomAttributes(typeof(OptionFlag), true).FirstOrDefault() is OptionFlag of))
             {
-                return string.Empty;
+                continue;
             }
 
-            return GetSwitches(options);
-        }
-
-        private string GetSwitches(PdfOptions options)
-        {
-            var result = new StringBuilder();
-
-            if (options.PageMargins != null)
+            var value = fi.GetValue(options, null);
+            if (value == null)
             {
-                result.Append(options.PageMargins.ToString());
+                continue;
             }
 
-            result.Append(" ");
-            result.Append(GetSwitchesBas(options));
-
-            return result.ToString().Trim();
-        }
-
-        private string GetSwitchesBas(PdfOptions options)
-        {
-            var result = new StringBuilder();
-
-            var fields = options.GetType().GetProperties();
-            foreach (var fi in fields)
+            if (fi.PropertyType == typeof(Dictionary<string, string>))
             {
-                if (!(fi.GetCustomAttributes(typeof(OptionFlag), true).FirstOrDefault() is OptionFlag of))
+                var dictionary = (Dictionary<string, string>)value;
+                foreach (var d in dictionary)
                 {
-                    continue;
-                }
-
-                var value = fi.GetValue(options, null);
-                if (value == null)
-                {
-                    continue;
-                }
-
-                if (fi.PropertyType == typeof(Dictionary<string, string>))
-                {
-                    var dictionary = (Dictionary<string, string>)value;
-                    foreach (var d in dictionary)
-                    {
-                        result.AppendFormat(" {0} {1} {2}", of.Name, d.Key, d.Value);
-                    }
-                }
-                else if (fi.PropertyType == typeof(bool))
-                {
-                    if ((bool)value)
-                    {
-                        result.AppendFormat(CultureInfo.InvariantCulture, " {0}", of.Name);
-                    }
-                }
-                else
-                {
-                    result.AppendFormat(CultureInfo.InvariantCulture, " {0} {1}", of.Name, value);
+                    result.AppendFormat(" {0} {1} {2}", of.Name, d.Key, d.Value);
                 }
             }
-
-            return result.ToString().Trim();
+            else if (fi.PropertyType == typeof(bool))
+            {
+                if ((bool)value)
+                {
+                    result.AppendFormat(CultureInfo.InvariantCulture, " {0}", of.Name);
+                }
+            }
+            else
+            {
+                result.AppendFormat(CultureInfo.InvariantCulture, " {0} {1}", of.Name, value);
+            }
         }
+
+        return result.ToString().Trim();
     }
 }

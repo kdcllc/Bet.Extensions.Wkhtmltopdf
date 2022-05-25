@@ -12,7 +12,7 @@ namespace Microsoft.AspNetCore.Mvc.Formatters
     /// in the form of:
     ///
     /// public string RawString([FromBody] string data)
-    /// public byte[] RawData([FromBody] byte[] data)
+    /// public byte[] RawData([FromBody] byte[] data).
     /// </summary>
     public class RawRequestBodyFormatter : InputFormatter
     {
@@ -47,7 +47,7 @@ namespace Microsoft.AspNetCore.Mvc.Formatters
 
         /// <summary>
         /// Handle text/plain or no content type for string results
-        /// Handle application/octet-stream for byte[] results
+        /// Handle application/octet-stream for byte[] results.
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>

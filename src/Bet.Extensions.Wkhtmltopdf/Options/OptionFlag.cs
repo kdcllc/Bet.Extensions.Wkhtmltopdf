@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace Bet.Extensions.Wkhtmltopdf.Options
-{
-    internal sealed class OptionFlag : Attribute
-    {
-        public OptionFlag(string name)
-        {
-            Name = name;
-        }
+namespace Bet.Extensions.Wkhtmltopdf.Options;
 
-        public string Name { get; }
+internal sealed class OptionFlag : Attribute
+{
+    public OptionFlag(string name)
+    {
+        Name = name;
     }
+
+    public string Name { get; }
 }

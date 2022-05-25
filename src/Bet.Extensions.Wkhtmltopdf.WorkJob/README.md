@@ -55,3 +55,8 @@ If you like or are using this project to learn or start your solution, please gi
         return new FileStreamResult(pdfStream, "application/pdf");
     }
 ```
+
+
+## Reference
+
+- https://github.com/sparksuite/simple-html-invoice-template

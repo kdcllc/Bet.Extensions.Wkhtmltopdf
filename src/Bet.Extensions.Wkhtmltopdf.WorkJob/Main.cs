@@ -92,7 +92,7 @@ public class Main : IMain
         // adds page break after each page
         var pages = $"{result}<div style='page-break-after:always'></div>{htmlPageText}";
 
-        var byteArray = await _pdfGenerator.GetAsync("http://192.168.86.141:8080/invoice.html", options, cancellationToken);
+        var byteArray = await _pdfGenerator.GetAsync("https://sparksuite.github.io/simple-html-invoice-template/index.html", options, cancellationToken);
 
         var fileName = Path.Combine($"{Guid.NewGuid()}-invoice.pdf");
 
